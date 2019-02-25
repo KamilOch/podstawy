@@ -4,20 +4,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import java.util.Map;
-import java.util.HashMap;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Controller
 public class ControlerStatki {
 
-   private Map <String,Gracz> gracze = new HashMap <>();
+   //private Map <String,Gracz> gracze = Collections.synchronizedMap(new HashMap <>();
+   private ListaGraczy gracze = new ListaGraczy();
+
+
    private List <StatekSklep> statkiDoKulepinia = new ArrayList <>();
    private List <Statek> statkiZlomowisko = new ArrayList<>();
 
+   private Object monitorTworzeniaGracz = new Object();
+   private Object monitorPobieraniaZMapy = new Object();
 
     private Gracz gracz1;
     private Gracz gracz2;
@@ -40,22 +41,25 @@ public class ControlerStatki {
         statkiDoKulepinia.add(new StatekSklep(new Nacja("Gallente"), "Fregata", "Tristan", 100, 5600, 10000));
         statkiDoKulepinia.add(new StatekSklep(new Nacja("Gallente"), "Fregata", "Atron", 4000,4000, 8000));
 
-        gracze.put("Gracz1", gracz1);
-        gracze.put("Gracz2", gracz2);
-        gracze.put("Gracz3", gracz3);
+        gracze.dodaj("Gracz1", gracz1);
+        gracze.dodaj("Gracz2", gracz2);
+        gracze.dodaj("Gracz3", gracz3);
     }
 
 
     void tworzenieGraczaWMapie (String nazwa){
         String zmienna = nazwa;
-        gracze.put(zmienna, new Gracz(new ArrayList <>(),1000000));
-
+        synchronized (gracze) {
+            gracze.dodaj(zmienna, new Gracz(new ArrayList<>(), 1000000));
+        }
     }
 
     private Gracz ktoryGracz (String kto) throws Wyjatek {
         Gracz gracz = null;
         try {
-             gracz = gracze.get(kto);
+            synchronized (gracze) {
+                gracz = gracze.podaj(kto);
+            }
         } catch (Wyjatek w){
             w.printStackTrace();
         }
@@ -68,7 +72,7 @@ public class ControlerStatki {
     ){
         tworzenieGraczaWMapie(NazwaGracza);
         //dupa debuging!
-        System.out.println(gracze.keySet());
+        System.out.println(gracze.podajNazwyGraczy());
 
         return "redirect:/dodawanie";
     }

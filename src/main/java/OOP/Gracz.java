@@ -53,7 +53,9 @@ public class Gracz {
         for (int i = 0; i < statkiNaSprzedaz.size(); i++) {
             Statek sprzedany = statkiNaSprzedaz.get(i);
             if (sprzedanyStatek == sprzedany.getEhp()) {
-                statkiZlomowisko.add(statkiNaSprzedaz.get(i));
+                synchronized (statkiZlomowisko) {
+                    statkiZlomowisko.add(statkiNaSprzedaz.get(i));
+                }
                 statkiNaSprzedaz.remove(statkiNaSprzedaz.get(i));
                 break;
             }

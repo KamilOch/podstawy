@@ -1,14 +1,14 @@
 package CwiczenieWatki.Trzecie;
 
-public class NewThread implements Runnable {
+public class NewThread2 implements Runnable {
     String name;
     Thread t;
 
 
-    private static long dupa;
+    public static long dupa;
     String napis = "ala";
 
-    NewThread (String threadname){
+    NewThread2(String threadname){
         name=threadname;
         t=new Thread(this, name);
         System.out.println("Nowy wątek: "+t);
@@ -35,13 +35,13 @@ public class NewThread implements Runnable {
     }
 
    private void jakkolwiek() throws InterruptedException {
-   synchronized ("ala") {
-       long dupa = NewThread.dupa;
+//   synchronized ("alafdhadkkjfhsakj") {
+       long dupa = NewThread2.dupa;
        dupa = dupa + 1;
        System.out.println(name+" dupa " + dupa );
        Thread.sleep(1);
-       NewThread.dupa = dupa;
-   }
+       NewThread2.dupa = dupa;
+//   }
     }
 
 
