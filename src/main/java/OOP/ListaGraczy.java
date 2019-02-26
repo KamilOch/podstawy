@@ -19,10 +19,9 @@ public class ListaGraczy {
     }
 
     public Set<String> podajNazwyGraczy() {
-        //Set<String> kopiaListyGraczy = null;
-        //kopiaListyGraczy.addAll(gracze.keySet());
-        //return kopiaListyGraczy;
-        return gracze.keySet();
+        HashMap<String, Gracz> kopiaGraczy = new HashMap<>(gracze);
+        return kopiaGraczy.keySet();
+        //return gracze.keySet();
     }
 
 
