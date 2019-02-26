@@ -9,19 +9,18 @@ public class ListaGraczy {
     private Map <String, Gracz> gracze = new HashMap<>();
 
 
-    public void dodaj(String nazwaGracza, Gracz gracz) {
+    public synchronized void dodaj(String nazwaGracza, Gracz gracz) {
         gracze.put(nazwaGracza,gracz);
     }
 
-    public Gracz podaj(String kto) {
+    public synchronized Gracz podaj(String kto) {
 
         return gracze.get(kto);
     }
 
-    public Set<String> podajNazwyGraczy() {
+    public synchronized Set<String> podajNazwyGraczy() {
         HashMap<String, Gracz> kopiaGraczy = new HashMap<>(gracze);
         return kopiaGraczy.keySet();
-        //return gracze.keySet();
     }
 
 
