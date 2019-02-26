@@ -3,7 +3,6 @@ package OOP;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.ArrayList;
 
 public class ListaGraczy {
 
@@ -19,10 +18,11 @@ public class ListaGraczy {
         return gracze.get(kto);
     }
 
-    public ArrayList<String> podajNazwyGraczy() {
-        ArrayList<String> kopiaListyGraczy = new ArrayList<>();
-        kopiaListyGraczy.addAll((ArrayList<String>)gracze.keySet());
-        return kopiaListyGraczy;
+    public Set<String> podajNazwyGraczy() {
+        //Set<String> kopiaListyGraczy = null;
+        //kopiaListyGraczy.addAll(gracze.keySet());
+        //return kopiaListyGraczy;
+        return gracze.keySet();
     }
 
 
