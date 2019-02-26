@@ -10,7 +10,7 @@ import java.util.*;
 @Controller
 public class ControlerStatki {
 
-   //private Map <String,Gracz> gracze = Collections.synchronizedMap(new HashMap <>();
+   //private Map <String,Gracz> gracze = Collections.synchronizedMap(new HashMap <>());
    private ListaGraczy gracze = new ListaGraczy();
 
 
@@ -194,7 +194,7 @@ public class ControlerStatki {
     public String listatGraczy (
             Model model
     ){
-        model.addAttribute("ListaGraczy",this.gracze);
+        model.addAttribute("ListaGraczy",this.gracze.podajNazwyGraczy());
         return "ktoWalczyWybor";
     }
 
