@@ -122,7 +122,7 @@ public class ControlerStatki {
     public String dodawanie (
             Model model
     ) {
-        model.addAttribute("ListaGraczy",gracze);
+        model.addAttribute("ListaGraczy",gracze.podajNazwyGraczy());
         return "gracze";
     }
 
