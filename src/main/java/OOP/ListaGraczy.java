@@ -14,16 +14,17 @@ public class ListaGraczy {
 
 
         if (nazwaGracza.equals("")) {
-            System.out.println("Nie podałęś niku gracza");
             wiadomosc = "Nie podałęś niku gracza";
+            System.out.println(wiadomosc);
             return wiadomosc;
         } else if (gracze.containsKey(nazwaGracza)) {
-            System.out.println("Podałeś "+nazwaGracza+" ale taki gracz już istnieje, podaj inny nik");
             wiadomosc = "Podałeś "+nazwaGracza+" ale taki gracz już istnieje, podaj inny nik";
+            System.out.println(wiadomosc);
             return wiadomosc;
         }   else {
             gracze.put(nazwaGracza, gracz);
             wiadomosc =  "Dodano nowego gracza";
+            System.out.println(wiadomosc);
             return wiadomosc;
        }
     }
