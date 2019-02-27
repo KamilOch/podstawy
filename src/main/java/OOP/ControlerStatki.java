@@ -123,6 +123,8 @@ public class ControlerStatki {
             Model model
     ) {
         model.addAttribute("nazwaGracza",gracze.podajNazwyGraczy());
+        model.addAttribute("wiadomosc",gracze.wiadomosc);
+
         return "gracze";
     }
 
