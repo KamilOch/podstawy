@@ -96,7 +96,7 @@ public class ControlerStatki {
     public String ktoKupuje (
             Model model
     ) {
-        model.addAttribute("ListaGraczy",this.gracze);
+        model.addAttribute("ListaGraczy",this.gracze.podajNazwyGraczy());
         return "ktoKupujeWybor";
     }
 
