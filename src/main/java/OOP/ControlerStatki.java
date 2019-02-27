@@ -96,7 +96,7 @@ public class ControlerStatki {
     public String ktoKupuje (
             Model model
     ) {
-        model.addAttribute("ListaGraczy",this.gracze.podajNazwyGraczy());
+        model.addAttribute("nazwaGracza",this.gracze.podajNazwyGraczy());
         return "ktoKupujeWybor";
     }
 
@@ -122,7 +122,7 @@ public class ControlerStatki {
     public String dodawanie (
             Model model
     ) {
-        model.addAttribute("ListaGraczy",gracze.podajNazwyGraczy());
+        model.addAttribute("nazwaGracza",gracze.podajNazwyGraczy());
         return "gracze";
     }
 
@@ -188,7 +188,7 @@ public class ControlerStatki {
     public String listatGraczy (
             Model model
     ){
-        model.addAttribute("ListaGraczy",this.gracze.podajNazwyGraczy());
+        model.addAttribute("nazwaGracza",this.gracze.podajNazwyGraczy());
         return "ktoWalczyWybor";
     }
 

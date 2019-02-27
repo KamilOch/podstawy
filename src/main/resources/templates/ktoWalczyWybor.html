@@ -12,17 +12,17 @@
 
             <ul>
                 <h1>Wybierz pierwszego</h1>
-                <li th:each="ListaGraczy : ${ListaGraczy}">
-                    <input type="radio" name="pierwszy" th:value="${ListaGraczy}" />
-                    <label  th:for="${ListaGraczy}" th:text="${ListaGraczy}"></label>
+                <li th:each="nazwaGracza : ${nazwaGracza}">
+                    <input type="radio" name="pierwszy" th:value="${nazwaGracza}" />
+                    <label  th:for="${nazwaGracza}" th:text="${nazwaGracza}"></label>
                 </li>
             </ul>
 
       <ul>
           <h1>Wybierz drugiego</h1>
-          <li th:each="ListaGraczy : ${ListaGraczy}">
-              <input type="radio" name="drugi" th:value="${ListaGraczy}" />
-              <label  th:for="${ListaGraczy}" th:text="${ListaGraczy}"></label>
+          <li th:each="nazwaGracza : ${nazwaGracza}">
+              <input type="radio" name="drugi" th:value="${nazwaGracza}" />
+              <label  th:for="${nazwaGracza}" th:text="${nazwaGracza}"></label>
           </li>
       </ul>
         <p><input type="submit" value="Przejdz do wyboru statków"/></p>

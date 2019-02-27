@@ -11,9 +11,9 @@
   <form action="/zakupyURL">
 
             <ul>
-                <li th:each="ListaGraczy : ${ListaGraczy}">
-                    <input type="radio" name="ktoKupuje" th:value="${ListaGraczy}" />
-                    <label  th:for="${ListaGraczy}" th:text="${ListaGraczy}"></label>
+                <li th:each="nazwaGracza : ${nazwaGracza}">
+                    <input type="radio" name="ktoKupuje" th:value="${nazwaGracza}" />
+                    <label  th:for="${nazwaGracza}" th:text="${nazwaGracza}"></label>
                 </li>
             </ul>
 
