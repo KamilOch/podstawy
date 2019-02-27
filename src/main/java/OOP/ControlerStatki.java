@@ -15,8 +15,9 @@ public class ControlerStatki {
    private List <StatekSklep> statkiDoKulepinia = new ArrayList <>();
    private List <Statek> statkiZlomowisko = new ArrayList<>();
 
-   private Object monitorTworzeniaGracz = new Object();
-   private Object monitorPobieraniaZMapy = new Object();
+   //private Object monitorTworzeniaGracz = new Object();
+   //private Object monitorPobieraniaZMapy = new Object();
+   private Object monitorWiadomosciZDodawaniaGracza = new Object();
 
     private Gracz gracz1;
     private Gracz gracz2;
@@ -123,8 +124,10 @@ public class ControlerStatki {
             Model model
     ) {
         model.addAttribute("nazwaGracza",gracze.podajNazwyGraczy());
-        model.addAttribute("wiadomosc",gracze.wiadomosc);
 
+        synchronized (monitorWiadomosciZDodawaniaGracza) {
+            model.addAttribute("wiadomosc", gracze.wiadomosc);
+        }
         return "gracze";
     }
 
